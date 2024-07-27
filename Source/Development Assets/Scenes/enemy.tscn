@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0gf2ivftajqc"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_xua64"]
+[ext_resource type="Texture2D" path="res://Assets/brackeys_platformer_assets/sprites/slime_green.png" id="2_ktbtt"]
+[ext_resource type="PackedScene" path="res://Scenes/kllzone.tscn" id="3_8wsji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlluv"]
+atlas = ExtResource("2_ktbtt")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvf7p"]
+atlas = ExtResource("2_ktbtt")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsk85"]
+atlas = ExtResource("2_ktbtt")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5bwu"]
+atlas = ExtResource("2_ktbtt")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jngyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlluv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvf7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsk85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5bwu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8bkdx"]
+size = Vector2(8, 10)
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_xua64")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_jngyl")
+autoplay = "default"
+
+[node name="kllzone" parent="." instance=ExtResource("3_8wsji")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kllzone"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_8bkdx")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-12, 0)
+collision_mask = 129
