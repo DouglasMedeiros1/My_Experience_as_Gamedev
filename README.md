@@ -10,4 +10,4 @@ As I liked the final result, I created this small repository to save it here on 
 
 (Sorry for the poor quality, there is a .mp4 video in better quality)
 
-<img src="https://github.com/DouglasMedeiros1/Tutorial_Game/blob/main/Source/Tutorial_Game_Gif.gif" width="650" align='center'>
+<img src="https://github.com/DouglasMedeiros1/My_Experience_as_Gamedev/blob/My_First_Experience/Source/Tutorial_Game_Gif.gif" width="650" align='center'>
